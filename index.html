@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Simple • M. Akbar Gadafi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Navigasi */
+        nav {
+            background-color: #2c5f2d;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        
+        nav a:hover {
+            background-color: #1e3f1f;
+            border-radius: 5px;
+        }
+        
+        /* Kontainer utama */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* Halaman aktif */
+        .active {
+            background-color: #1e3f1f;
+            border-radius: 5px;
+        }
+        
+        /* Card untuk konten */
+        .card {
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c5f2d;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        
+        h2 {
+            color: #2c5f2d;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        /* Tombol */
+        .btn {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1e3f1f;
+        }
+        
+        /* List portofolio */
+        .portfolio-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #2c5f2d;
+        }
+        
+        .portfolio-item h3 {
+            color: #2c5f2d;
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        
+        /* Profil section */
+        .profil-img {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: #2c5f2d;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="#" onclick="showPage('home')" id="link-home" class="active">Beranda</a>
+        <a href="#" onclick="showPage('profil')" id="link-profil">Profil</a>
+        <a href="#" onclick="showPage('portofolio')" id="link-portofolio">Portofolio</a>
+    </nav>
+
+    <!-- Halaman Beranda -->
+    <div id="home" class="container page">
+        <div class="card">
+            <h1>Assalamu'alaikum! 👋</h1>
+            <h2>Selamat Datang di Website Simple Saya</h2>
+            <p>Halo, saya <strong>M. Akbar Gadafi</strong>. Website sederhana ini saya buat untuk portofolio beasiswa. Ini adalah contoh website dengan 3 halaman yang bisa langsung digunakan.</p>
+            <p>Website ini dibuat dengan HTML dan CSS murni, tanpa framework. Sangat ringan dan cepat diakses.</p>
+            <a href="#" onclick="showPage('portofolio')" class="btn">Lihat Portofolio Saya</a>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
+            <div class="card" style="text-align: center;">
+                <h3 style="color: #2c5f2d;">📱 Mobile Friendly</h3>
+                <p>Tampilan rapi di HP dan laptop</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="color: #2c5f2d;">⚡ Cepat & Ringan</h3>
+                <p>Loading super cepat</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Profil -->
+    <div id="profil" class="container page" style="display: none;">
+        <div class="card">
+            <h1>Tentang Saya</h1>
+            
+            <div class="profil-img">
+                👤
+            </div>
+            
+            <h2>M. Akbar Gadafi</h2>
+            <p><strong>Calon Mahasiswa | Web Developer Pemula</strong></p>
+            
+            <p>Saya adalah seorang pengembang web pemula yang tertarik dengan dunia teknologi dan dakwah digital. Website ini adalah bagian dari portofolio untuk mendaftar beasiswa.</p>
+            
+            <h2>Data Diri</h2>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Nama Lengkap:</strong> M. Akbar Gadafi</li>
+                <li><strong>Pendidikan:</strong> SMA / Sederajat</li>
+                <li><strong>Minat:</strong> Web Development, Desain Islami</li>
+                <li><strong>Skill:</strong> HTML, CSS, JavaScript (dasar)</li>
+            </ul>
+            
+            <h2>Kontak</h2>
+            <p>📧 Email: akbar.gadafi@email.com</p>
+            <p>📱 Instagram: @akbar_gadafi</p>
+            <p>💻 GitHub: github.com/akbargadafi</p>
+        </div>
+    </div>
+
+    <!-- Halaman Portofolio -->
+    <div id="portofolio" class="container page" style="display: none;">
+        <div class="card">
+            <h1>Portofolio Saya</h1>
+            <p>Berikut adalah beberapa project yang pernah saya buat:</p>
+            
+            <div class="portfolio-item">
+                <h3>🌐 Website Islami</h3>
+                <p>Prototype website islami dengan fitur jadwal sholat, dzikir, dan doa harian. Responsif dan mobile friendly.</p>
+            </div>
+            
+            <div class="portfolio-item">
+                <h3>📱 Aplikasi To-Do List</h3>
+                <p>Aplikasi catatan tugas harian dengan tampilan sederhana dan mudah digunakan.</p>
+            </div>
+            
+            <div class="portfolio-item">
+                <h3>🕌 Landing Page Masjid</h3>
+                <p>Landing page untuk profil masjid dengan informasi jadwal kajian dan kegiatan.</p>
+            </div>
+            
+            <div class="portfolio-item">
+                <h3>📖 Blog Pribadi</h3>
+                <p>Blog sederhana untuk berbagi tulisan tentang pengalaman belajar coding.</p>
+            </div>
+            
+            <a href="#" onclick="showPage('home')" class="btn">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 M. Akbar Gadafi - Dibuat untuk Portofolio Beasiswa</p>
+        <p style="margin-top: 10px; font-size: 14px;">"Sebaik-baik manusia adalah yang bermanfaat bagi orang lain"</p>
+    </footer>
+
+    <!-- JavaScript untuk navigasi -->
+    <script>
+        function showPage(page) {
+            // Sembunyikan semua halaman
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('profil').style.display = 'none';
+            document.getElementById('portofolio').style.display = 'none';
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById(page).style.display = 'block';
+            
+            // Update class active di navigasi
+            document.getElementById('link-home').classList.remove('active');
+            document.getElementById('link-profil').classList.remove('active');
+            document.getElementById('link-portofolio').classList.remove('active');
+            
+            document.getElementById('link-' + page).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
+    
