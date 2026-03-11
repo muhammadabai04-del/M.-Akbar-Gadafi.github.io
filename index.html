@@ -130,7 +130,7 @@
         }
         
         .stars {
-            font-size: 30px;
+            font-size: 40px;
             cursor: pointer;
             color: #ccc;
             margin: 15px 0;
@@ -142,7 +142,7 @@
         }
         
         .stars i:hover,
-        .stars i.active {
+        .stars i.aktif {
             color: #f5b301;
         }
         
@@ -167,7 +167,7 @@
             }
         }
     </style>
-    <!-- Font Awesome untuk ikon bintang dan lainnya -->
+    <!-- Font Awesome untuk ikon bintang -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -183,7 +183,7 @@
         <div class="card">
             <h1>Assalamu'alaikum! 👋</h1>
             <h2>Selamat Datang di Website Simple Saya</h2>
-            <p>Halo, saya <strong>M. Akbar Gadafi</strong>. Website sederhana ini saya buat untuk portofolio beasiswa. Ini adalah contoh website dengan 3 halaman yang bisa langsung digunakan.</p>
+            <p>Halo, saya <strong>M. Akbar Gadafi</strong>. Website sederhana ini saya buat untuk portofolio beasiswa.</p>
             <p>Website ini dibuat dengan HTML dan CSS murni, tanpa framework. Sangat ringan dan cepat diakses.</p>
             <a href="#" onclick="showPage('portofolio')" class="btn">Lihat Portofolio Saya</a>
         </div>
@@ -202,7 +202,7 @@
         <!-- ====== SECTION RATING ====== -->
         <div class="rating-section">
             <h3>⭐ Rating Website Ini</h3>
-            <p>Bantu beri penilaian untuk website sederhana ini (simulasi dengan localStorage)</p>
+            <p>Bantu beri penilaian untuk website sederhana ini</p>
             
             <div class="stars" id="stars">
                 <i class="fa-regular fa-star" data-value="1"></i>
@@ -216,7 +216,7 @@
                 <span id="rating-value">0.0</span> / 5 · 
                 <span id="vote-count">0</span> suara
             </div>
-            <p style="font-size: 14px; color: #666;">*Klik bintang untuk memberi rating. Data tersimpan di browser kamu.</p>
+            <p style="font-size: 14px; color: #666;">*Klik bintang untuk memberi rating</p>
         </div>
     </div>
 
@@ -232,7 +232,7 @@
             <h2>M. Akbar Gadafi</h2>
             <p><strong>Calon Mahasiswa | Web Developer Pemula</strong></p>
             
-            <p>Saya adalah seorang pengembang web pemula yang tertarik dengan dunia teknologi dan dakwah digital. Website ini adalah bagian dari portofolio untuk mendaftar beasiswa.</p>
+            <p>Saya adalah seorang pengembang web pemula yang tertarik dengan dunia teknologi dan dakwah digital.</p>
             
             <h2>Data Diri</h2>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
@@ -257,17 +257,17 @@
             
             <div class="portfolio-item">
                 <h3>🌐 Website Islami</h3>
-                <p>Prototype website islami dengan fitur jadwal sholat, dzikir, dan doa harian. Responsif dan mobile friendly.</p>
+                <p>Prototype website islami dengan fitur jadwal sholat, dzikir, dan doa harian.</p>
             </div>
             
             <div class="portfolio-item">
                 <h3>📱 Aplikasi To-Do List</h3>
-                <p>Aplikasi catatan tugas harian dengan tampilan sederhana dan mudah digunakan.</p>
+                <p>Aplikasi catatan tugas harian dengan tampilan sederhana.</p>
             </div>
             
             <div class="portfolio-item">
                 <h3>🕌 Landing Page Masjid</h3>
-                <p>Landing page untuk profil masjid dengan informasi jadwal kajian dan kegiatan.</p>
+                <p>Landing page untuk profil masjid dengan informasi jadwal kajian.</p>
             </div>
             
             <div class="portfolio-item">
@@ -299,72 +299,44 @@
         }
 
         // ========== FITUR RATING ==========
-        // Inisialisasi data rating dari localStorage (gunakan array)
-        let ratings = JSON.parse(localStorage.getItem('ratings')) || [5, 4, 5]; // contoh awal biar ada data
+        let ratings = JSON.parse(localStorage.getItem('ratings')) || [5, 4, 5];
 
-        // Ambil elemen
         const stars = document.querySelectorAll('#stars i');
         const ratingValue = document.getElementById('rating-value');
         const voteCount = document.getElementById('vote-count');
 
-        // Fungsi untuk memperbarui tampilan rating dan bintang
         function updateRatingDisplay() {
-            // Hitung rata-rata
             let total = ratings.reduce((acc, val) => acc + val, 0);
             let avg = ratings.length > 0 ? (total / ratings.length).toFixed(1) : 0;
             ratingValue.textContent = avg;
             voteCount.textContent = ratings.length;
 
-            // Sorot bintang sesuai rata-rata (pembulatan)
             let roundedAvg = Math.round(avg);
             stars.forEach(star => {
                 let value = parseInt(star.getAttribute('data-value'));
                 if (value <= roundedAvg) {
                     star.classList.remove('fa-regular');
-                    star.classList.add('fa-solid', 'active');
+                    star.classList.add('fa-solid', 'aktif');
                 } else {
-                    star.classList.remove('fa-solid', 'active');
+                    star.classList.remove('fa-solid', 'aktif');
                     star.classList.add('fa-regular');
                 }
             });
         }
 
-        // Fungsi untuk menambah rating baru
         function addRating(value) {
             ratings.push(value);
             localStorage.setItem('ratings', JSON.stringify(ratings));
             updateRatingDisplay();
         }
 
-        // Event listener untuk setiap bintang
         stars.forEach(star => {
             star.addEventListener('click', function() {
                 let value = parseInt(this.getAttribute('data-value'));
                 addRating(value);
             });
-
-            // Efek hover (opsional)
-            star.addEventListener('mouseenter', function() {
-                let value = parseInt(this.getAttribute('data-value'));
-                stars.forEach(s => {
-                    let val = parseInt(s.getAttribute('data-value'));
-                    if (val <= value) {
-                        s.classList.remove('fa-regular');
-                        s.classList.add('fa-solid');
-                    } else {
-                        s.classList.remove('fa-solid');
-                        s.classList.add('fa-regular');
-                    }
-                });
-            });
-
-            star.addEventListener('mouseleave', function() {
-                // Kembalikan ke tampilan sesuai rata-rata
-                updateRatingDisplay();
-            });
         });
 
-        // Panggil pertama kali
         updateRatingDisplay();
     </script>
 </body>
