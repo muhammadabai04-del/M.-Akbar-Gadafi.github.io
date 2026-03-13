@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Portofolio • M. Akbar Gadafi</title>
 
 <style>
@@ -35,8 +37,8 @@ margin:0 15px;
 font-size:18px;
 }
 
-nav a:hover{
-opacity:0.8;
+nav button{
+margin-left:15px;
 }
 
 .container{
@@ -72,8 +74,8 @@ color:white;
 padding:10px 25px;
 border-radius:6px;
 text-decoration:none;
-display:inline-block;
-margin-top:15px;
+border:none;
+cursor:pointer;
 }
 
 .btn:hover{
@@ -118,6 +120,11 @@ background:#1e1e1e;
 background:black;
 }
 
+.stars span{
+font-size:30px;
+cursor:pointer;
+}
+
 footer{
 text-align:center;
 padding:30px;
@@ -127,6 +134,7 @@ color:white;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -135,38 +143,68 @@ color:white;
 <a href="#" onclick="showPage('home')">Beranda</a>
 <a href="#" onclick="showPage('profil')">Profil</a>
 <a href="#" onclick="showPage('portofolio')">Portofolio</a>
-<button onclick="toggleDark()" style="margin-left:15px;">🌙</button>
+<a href="#" onclick="showPage('masjid')">Masjid Lokal</a>
+
+<button onclick="toggleDark()">🌙</button>
 </nav>
 
 <!-- HOME -->
+
 <div id="home" class="container page">
 
 <div class="card">
-<h1>Assalamu'alaikum 👋</h1>
-<p>Halo saya <b>M. Akbar Gadafi</b>.</p>
-<p>Website ini adalah portofolio sederhana yang saya buat untuk perjalanan menuju beasiswa dan dunia teknologi.</p>
 
-<a href="#" onclick="showPage('portofolio')" class="btn">Lihat Portofolio</a>
+<h1>Assalamu'alaikum 👋</h1>
+
+<p>Halo saya <b>M. Akbar Gadafi</b>.</p>
+
+<p>Website ini adalah portofolio pribadi untuk perjalanan menuju dunia teknologi, dakwah digital, dan beasiswa luar negeri.</p>
+
+<button class="btn" onclick="showPage('portofolio')">Lihat Portofolio</button>
+
 </div>
 
 <div class="card">
+
 <h2>Target Saya</h2>
+
 <p>🎓 Mendapatkan Beasiswa Luar Negeri</p>
 <p>💻 Menjadi Ethical Hacker</p>
 <p>📖 Menyelesaikan Hafalan 30 Juz</p>
+
+</div>
+
+<div class="card">
+
+<h2>Rating Website ⭐</h2>
+
+<div class="stars">
+
+<span onclick="rateSite(1)">⭐</span>
+<span onclick="rateSite(2)">⭐</span>
+<span onclick="rateSite(3)">⭐</span>
+<span onclick="rateSite(4)">⭐</span>
+<span onclick="rateSite(5)">⭐</span>
+
+</div>
+
+<p id="ratingResult">Belum ada rating</p>
+
 </div>
 
 </div>
 
 <!-- PROFIL -->
+
 <div id="profil" class="container page" style="display:none">
 
 <div class="card">
+
 <h1>Tentang Saya</h1>
 
 <p><b>Nama:</b> M. Akbar Gadafi</p>
 <p><b>Status:</b> Pelajar</p>
-<p><b>Minat:</b> Teknologi, Dakwah Digital, Informatika</p>
+<p><b>Minat:</b> Informatika, Dakwah Digital</p>
 
 <h2>Skill</h2>
 
@@ -188,40 +226,70 @@ color:white;
 <h2>Kontak</h2>
 
 <p>📧 Email: muhammadabai04@gmail.com</p>
-<p>📸 Instagram: @Dave_fieee</p>
+<p>📷 Instagram: @Dave_fieee</p>
 
 </div>
 
 </div>
 
 <!-- PORTOFOLIO -->
+
 <div id="portofolio" class="container page" style="display:none">
 
 <div class="card">
+
 <h1>Portofolio</h1>
 
 <div class="portfolio">
 <h3>🌐 Website Islami</h3>
-<p>Prototype website islami untuk dakwah digital.</p>
+<p>Prototype website dakwah digital.</p>
 </div>
 
 <div class="portfolio">
 <h3>📱 To Do List App</h3>
-<p>Aplikasi pencatat tugas sederhana.</p>
+<p>Aplikasi catatan tugas sederhana.</p>
 </div>
 
 <div class="portfolio">
 <h3>🕌 Landing Page Masjid</h3>
-<p>Website informasi kegiatan masjid.</p>
+<p>Website profil masjid dengan informasi kegiatan.</p>
 </div>
+
+</div>
+
+</div>
+
+<!-- MASJID -->
+
+<div id="masjid" class="container page" style="display:none">
+
+<div class="card">
+
+<h1>Masjid Lokal 🕌</h1>
+
+<p>Gunakan lokasi untuk melihat masjid terdekat.</p>
+
+<button class="btn" onclick="getLocation()">📍 Gunakan Lokasi Saya</button>
+
+<br><br>
+
+<iframe id="mapFrame"
+width="100%"
+height="350"
+style="border-radius:10px;border:0"
+loading="lazy">
+</iframe>
 
 </div>
 
 </div>
 
 <footer>
+
 <p>© 2026 M. Akbar Gadafi</p>
+
 <p>"Sebaik-baik manusia adalah yang bermanfaat bagi orang lain"</p>
+
 </footer>
 
 <script>
@@ -231,13 +299,50 @@ function showPage(page){
 document.getElementById("home").style.display="none";
 document.getElementById("profil").style.display="none";
 document.getElementById("portofolio").style.display="none";
+document.getElementById("masjid").style.display="none";
 
 document.getElementById(page).style.display="block";
 
 }
 
 function toggleDark(){
+
 document.body.classList.toggle("dark");
+
+}
+
+let ratings=[];
+
+function rateSite(value){
+
+ratings.push(value);
+
+let total=ratings.reduce((a,b)=>a+b,0);
+let avg=(total/ratings.length).toFixed(1);
+
+document.getElementById("ratingResult").innerText="Rating: "+avg+" dari "+ratings.length+" suara";
+
+}
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+let lat=pos.coords.latitude;
+let lon=pos.coords.longitude;
+
+document.getElementById("mapFrame").src="https://maps.google.com/maps?q=masjid&ll="+lat+","+lon+"&z=15&output=embed";
+
+});
+
+}else{
+
+alert("Browser tidak mendukung GPS");
+
+}
+
 }
 
 const cards=document.querySelectorAll(".card");
@@ -245,11 +350,15 @@ const cards=document.querySelectorAll(".card");
 window.addEventListener("scroll",function(){
 
 cards.forEach(card=>{
-let position=card.getBoundingClientRect().top;
+
+let pos=card.getBoundingClientRect().top;
+
 let screen=window.innerHeight;
 
-if(position<screen-100){
+if(pos<screen-100){
+
 card.classList.add("show");
+
 }
 
 });
