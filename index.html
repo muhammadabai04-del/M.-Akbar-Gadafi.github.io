@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Akbar Gadafi | Ethical Hacker Portfolio</title>
+<title>Akbar Gadafi | Islamic Tech</title>
 
 <style>
 
@@ -12,48 +12,90 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:monospace;
+font-family:Arial, sans-serif;
 }
 
 body{
-background:#000;
-color:#00ff88;
+background:#f5f7f6;
+color:#333;
+transition:0.3s;
 }
 
+/* NAVBAR */
+
 nav{
+background:#0f5132;
 padding:15px;
-border-bottom:1px solid #00ff88;
-text-align:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
 }
 
 nav a{
-color:#00ff88;
-margin:0 10px;
+color:white;
 text-decoration:none;
+margin:0 10px;
 }
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#0f5132,#198754);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+margin-top:10px;
+}
+
+/* CONTAINER */
 
 .container{
-max-width:900px;
+max-width:1100px;
 margin:auto;
-padding:30px;
+padding:40px 20px;
 }
 
-.card{
-border:1px solid #00ff88;
-padding:25px;
-margin-top:25px;
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
+
+/* CARD */
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* PROJECT */
+
+.project{
+border:1px solid #eee;
+padding:20px;
+border-radius:8px;
+}
+
+/* TERMINAL */
 
 .terminal{
 background:black;
-border:1px solid #00ff88;
+color:#00ff88;
 padding:20px;
-margin-top:20px;
-}
-
-#terminal-output{
-min-height:150px;
-margin-bottom:10px;
+border-radius:8px;
+font-family:monospace;
 }
 
 #terminal-input{
@@ -64,34 +106,47 @@ width:100%;
 outline:none;
 }
 
-.chatbox{
-border:1px solid #00ff88;
-padding:20px;
-margin-top:20px;
-}
-
-input{
-background:black;
-border:1px solid #00ff88;
-color:#00ff88;
-padding:8px;
-width:100%;
-margin-top:10px;
-}
+/* BUTTON */
 
 button{
-background:#00ff88;
+background:#198754;
+color:white;
 border:none;
-padding:8px 15px;
+padding:10px 15px;
 margin-top:10px;
+border-radius:6px;
 cursor:pointer;
 }
 
+/* INPUT */
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+/* DARK MODE */
+
+.dark{
+background:#111;
+color:#eee;
+}
+
+.dark .card{
+background:#1e1e1e;
+}
+
+/* FOOTER */
+
 footer{
+background:#0f5132;
+color:white;
 text-align:center;
 padding:30px;
 margin-top:40px;
-border-top:1px solid #00ff88;
 }
 
 </style>
@@ -102,80 +157,117 @@ border-top:1px solid #00ff88;
 
 <nav>
 
-<a href="#" onclick="showPage('home')">home</a>
-<a href="#" onclick="showPage('terminal')">terminal</a>
-<a href="#" onclick="showPage('chatbot')">ai</a>
-<a href="#" onclick="showPage('masjid')">masjid</a>
+<div><b>Islamic Tech</b></div>
+
+<div>
+<a href="#" onclick="showPage('home')">Home</a>
+<a href="#" onclick="showPage('portfolio')">Portfolio</a>
+<a href="#" onclick="showPage('ai')">AI Ustadz</a>
+<a href="#" onclick="showPage('cyber')">Cyber Lab</a>
+<a href="#" onclick="showPage('masjid')">Masjid</a>
+</div>
+
+<button onclick="toggleDark()">🌙</button>
 
 </nav>
 
 <!-- HOME -->
 
-<div id="home" class="container page">
+<div id="home" class="page">
+
+<div class="hero">
+
+<h1>M. Akbar Gadafi</h1>
+<p>Santri • Ethical Hacker • Developer</p>
+<p>@Dave_fieee</p>
+
+</div>
+
+<div class="container">
+
+<div class="grid">
 
 <div class="card">
+<h3>📖 Hafalan</h3>
+<p>15 Juz Al-Qur'an</p>
+</div>
 
-<h1>root@akbar:~# welcome</h1>
+<div class="card">
+<h3>🌍 Bahasa</h3>
+<p>Arab & English</p>
+</div>
 
-<p>M. Akbar Gadafi</p>
-<p>Ethical Hacker | Web Developer | Santri</p>
+<div class="card">
+<h3>💻 Skill</h3>
+<p>Web Development & Cybersecurity</p>
+</div>
 
-<p>Instagram: @Dave_fieee</p>
-<p>Email: muhammadabai04@gmail.com</p>
+</div>
 
 </div>
 
 </div>
 
-<!-- TERMINAL -->
+<!-- PORTFOLIO -->
 
-<div id="terminal" class="container page" style="display:none">
+<div id="portfolio" class="container page" style="display:none">
+
+<h2>Project</h2>
+
+<div class="grid">
+
+<div class="project">
+<h3>AI Ustadz Chatbot</h3>
+<p>Chatbot Islami untuk tanya jawab agama.</p>
+</div>
+
+<div class="project">
+<h3>Cyber Lab</h3>
+<p>Simulasi terminal ethical hacking.</p>
+</div>
+
+<div class="project">
+<h3>Mosque Finder</h3>
+<p>Mencari masjid terdekat.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- AI USTADZ -->
+
+<div id="ai" class="container page" style="display:none">
 
 <div class="card">
 
-<h2>interactive terminal</h2>
+<h2>AI Ustadz</h2>
+
+<input id="chat">
+
+<button onclick="chat()">Tanya</button>
+
+<p id="answer"></p>
+
+</div>
+
+</div>
+
+<!-- CYBER LAB -->
+
+<div id="cyber" class="container page" style="display:none">
+
+<div class="card">
+
+<h2>Cyber Lab</h2>
 
 <div class="terminal">
 
 <div id="terminal-output"></div>
 
-<input id="terminal-input" placeholder="type command...">
+<input id="terminal-input">
 
 </div>
-
-</div>
-
-<div class="card">
-
-<h2>network scan result</h2>
-
-<div id="scan"></div>
-
-</div>
-
-<div class="card">
-
-<h2>visitor info</h2>
-
-<div id="visitor"></div>
-
-</div>
-
-</div>
-
-<!-- CHATBOT -->
-
-<div id="chatbot" class="container page" style="display:none">
-
-<div class="card">
-
-<h2>AI Chatbot Islami</h2>
-
-<input id="chatInput" placeholder="Tanya tentang Islam...">
-
-<button onclick="askAI()">Kirim</button>
-
-<p id="chatOutput"></p>
 
 </div>
 
@@ -187,13 +279,13 @@ border-top:1px solid #00ff88;
 
 <div class="card">
 
-<h2>Masjid Locator</h2>
+<h2>Masjid Terdekat</h2>
 
-<button onclick="getLocation()">Scan Masjid Terdekat</button>
+<button onclick="locate()">Cari Masjid</button>
 
 <br><br>
 
-<iframe id="mapFrame" width="100%" height="350" style="border:0"></iframe>
+<iframe id="map" width="100%" height="350"></iframe>
 
 </div>
 
@@ -207,6 +299,8 @@ border-top:1px solid #00ff88;
 
 <script>
 
+/* PAGE */
+
 function showPage(page){
 
 document.querySelectorAll(".page").forEach(p=>{
@@ -217,50 +311,32 @@ document.getElementById(page).style.display="block";
 
 }
 
+/* DARK MODE */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
 /* TERMINAL */
 
-const input=document.getElementById("terminal-input");
-const output=document.getElementById("terminal-output");
+let input=document.getElementById("terminal-input");
+let output=document.getElementById("terminal-output");
 
 input.addEventListener("keypress",function(e){
 
 if(e.key==="Enter"){
 
-let cmd=input.value.toLowerCase();
+let cmd=input.value;
 
 output.innerHTML+="<div>> "+cmd+"</div>";
 
-if(cmd==="help"){
-output.innerHTML+="commands: about skills projects dua scan visitor clear";
-}
+if(cmd==="help") output.innerHTML+="help about skills";
 
-else if(cmd==="about"){
-output.innerHTML+="M. Akbar Gadafi - Ethical Hacker Portfolio";
-}
+if(cmd==="about") output.innerHTML+="Akbar Gadafi Ethical Hacker";
 
-else if(cmd==="skills"){
-output.innerHTML+="html css javascript cybersecurity basic";
-}
-
-else if(cmd==="projects"){
-output.innerHTML+="islamic website | todo app | mosque website";
-}
-
-else if(cmd==="dua"){
-output.innerHTML+="Doa: Allahumma inni as'aluka ilman nafi'an...";
-}
-
-else if(cmd==="scan"){
-startScan();
-}
-
-else if(cmd==="visitor"){
-showVisitor();
-}
-
-else if(cmd==="clear"){
-output.innerHTML="";
-}
+if(cmd==="skills") output.innerHTML+="html css javascript cybersecurity";
 
 input.value="";
 
@@ -268,78 +344,37 @@ input.value="";
 
 });
 
-/* NETWORK SCAN VISUAL */
+/* AI */
 
-function startScan(){
+function chat(){
 
-let scan=document.getElementById("scan");
+let q=document.getElementById("chat").value.toLowerCase();
 
-scan.innerHTML="scanning network...<br>";
+let a="Saya belum tahu.";
 
-let devices=[
-"192.168.1.1 router",
-"192.168.1.5 laptop",
-"192.168.1.10 phone"
-];
+if(q.includes("shalat")) a="Shalat wajib ada lima waktu.";
 
-devices.forEach(d=>{
-scan.innerHTML+="device found: "+d+"<br>";
-});
+if(q.includes("puasa")) a="Puasa Ramadhan wajib bagi muslim.";
+
+if(q.includes("doa")) a="Doa sebelum belajar: Allahumma inni as'aluka ilman nafi'an.";
+
+document.getElementById("answer").innerText=a;
 
 }
 
-/* VISITOR INFO */
+/* MASJID */
 
-function showVisitor(){
+function locate(){
 
-let info=
-"Browser: "+navigator.userAgent;
-
-document.getElementById("visitor").innerText=info;
-
-}
-
-/* AI CHATBOT */
-
-function askAI(){
-
-let q=document.getElementById("chatInput").value.toLowerCase();
-
-let ans="Maaf saya belum tahu.";
-
-if(q.includes("doa")){
-ans="Doa sebelum belajar: Allahumma inni as'aluka 'ilman nafi'an...";
-}
-
-if(q.includes("shalat")){
-ans="Shalat wajib ada 5 waktu: Subuh, Dzuhur, Ashar, Maghrib, Isya.";
-}
-
-if(q.includes("puasa")){
-ans="Puasa Ramadhan adalah kewajiban bagi muslim yang mampu.";
-}
-
-document.getElementById("chatOutput").innerText=ans;
-
-}
-
-/* MASJID LOCATOR */
-
-function getLocation(){
-
-if(navigator.geolocation){
-
-navigator.geolocation.getCurrentPosition(function(pos){
+navigator.geolocation.getCurrentPosition(pos=>{
 
 let lat=pos.coords.latitude;
 let lon=pos.coords.longitude;
 
-document.getElementById("mapFrame").src=
+document.getElementById("map").src=
 "https://maps.google.com/maps?q=masjid&ll="+lat+","+lon+"&z=15&output=embed";
 
 });
-
-}
 
 }
 
