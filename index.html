@@ -1,343 +1,262 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Simple • M. Akbar Gadafi</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        nav {
-            background-color: #2c5f2d;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            padding: 5px 10px;
-        }
-        
-        nav a:hover {
-            background-color: #1e3f1f;
-            border-radius: 5px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        
-        .active {
-            background-color: #1e3f1f;
-            border-radius: 5px;
-        }
-        
-        .card {
-            background-color: #f5f5f5;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            color: #2c5f2d;
-            margin-bottom: 20px;
-            font-size: 36px;
-        }
-        
-        h2 {
-            color: #2c5f2d;
-            margin: 20px 0 10px;
-        }
-        
-        p {
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background-color: #2c5f2d;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: #1e3f1f;
-        }
-        
-        .portfolio-item {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #2c5f2d;
-        }
-        
-        .portfolio-item h3 {
-            color: #2c5f2d;
-            margin-bottom: 8px;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-        
-        .profil-img {
-            width: 150px;
-            height: 150px;
-            background-color: #ddd;
-            border-radius: 50%;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            color: #2c5f2d;
-        }
-        
-        /* Style untuk rating */
-        .rating-section {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 30px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .stars {
-            font-size: 40px;
-            cursor: pointer;
-            color: #ccc;
-            margin: 15px 0;
-        }
-        
-        .stars i {
-            margin: 0 5px;
-            transition: color 0.2s;
-        }
-        
-        .stars i:hover,
-        .stars i.aktif {
-            color: #f5b301;
-        }
-        
-        .rating-info {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        
-        .rating-info span {
-            font-weight: bold;
-            color: #2c5f2d;
-        }
-        
-        @media (max-width: 600px) {
-            nav a {
-                display: inline-block;
-                margin: 5px;
-                font-size: 16px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
-    <!-- Font Awesome untuk ikon bintang -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio • M. Akbar Gadafi</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f4f6f8;
+color:#333;
+transition:0.4s;
+}
+
+nav{
+background:#2c5f2d;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:18px;
+}
+
+nav a:hover{
+opacity:0.8;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+margin-top:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+opacity:0;
+transform:translateY(20px);
+transition:0.6s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h1{
+color:#2c5f2d;
+margin-bottom:15px;
+}
+
+.btn{
+background:#2c5f2d;
+color:white;
+padding:10px 25px;
+border-radius:6px;
+text-decoration:none;
+display:inline-block;
+margin-top:15px;
+}
+
+.btn:hover{
+background:#1e3f1f;
+}
+
+.skill{
+background:#ddd;
+border-radius:10px;
+margin:10px 0;
+overflow:hidden;
+}
+
+.skill-bar{
+background:#2c5f2d;
+height:10px;
+}
+
+.portfolio{
+background:#f9f9f9;
+padding:20px;
+border-left:5px solid #2c5f2d;
+border-radius:8px;
+margin-bottom:15px;
+transition:0.3s;
+}
+
+.portfolio:hover{
+transform:scale(1.05);
+}
+
+.dark{
+background:#121212;
+color:white;
+}
+
+.dark .card{
+background:#1e1e1e;
+}
+
+.dark nav{
+background:black;
+}
+
+footer{
+text-align:center;
+padding:30px;
+margin-top:40px;
+background:#333;
+color:white;
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <a href="#" onclick="showPage('home')" id="link-home" class="active">Beranda</a>
-        <a href="#" onclick="showPage('profil')" id="link-profil">Profil</a>
-        <a href="#" onclick="showPage('portofolio')" id="link-portofolio">Portofolio</a>
-    </nav>
+<nav>
+<a href="#" onclick="showPage('home')">Beranda</a>
+<a href="#" onclick="showPage('profil')">Profil</a>
+<a href="#" onclick="showPage('portofolio')">Portofolio</a>
+<button onclick="toggleDark()" style="margin-left:15px;">🌙</button>
+</nav>
 
-    <!-- Halaman Beranda -->
-    <div id="home" class="container page">
-        <div class="card">
-            <h1>Assalamu'alaikum! 👋</h1>
-            <h2>Selamat Datang di Website Simple Saya</h2>
-            <p>Halo, saya <strong>M. Akbar Gadafi</strong>. Website sederhana ini saya buat untuk portofolio beasiswa.</p>
-            <p>Website ini dibuat dengan HTML dan CSS murni, tanpa framework. Sangat ringan dan cepat diakses.</p>
-            <a href="#" onclick="showPage('portofolio')" class="btn">Lihat Portofolio Saya</a>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
-            <div class="card" style="text-align: center;">
-                <h3 style="color: #2c5f2d;">📱 Mobile Friendly</h3>
-                <p>Tampilan rapi di HP dan laptop</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <h3 style="color: #2c5f2d;">⚡ Cepat & Ringan</h3>
-                <p>Loading super cepat</p>
-            </div>
-        </div>
+<!-- HOME -->
+<div id="home" class="container page">
 
-        <!-- ====== SECTION RATING ====== -->
-        <div class="rating-section">
-            <h3>⭐ Rating Website Ini</h3>
-            <p>Bantu beri penilaian untuk website sederhana ini</p>
-            
-            <div class="stars" id="stars">
-                <i class="fa-regular fa-star" data-value="1"></i>
-                <i class="fa-regular fa-star" data-value="2"></i>
-                <i class="fa-regular fa-star" data-value="3"></i>
-                <i class="fa-regular fa-star" data-value="4"></i>
-                <i class="fa-regular fa-star" data-value="5"></i>
-            </div>
+<div class="card">
+<h1>Assalamu'alaikum 👋</h1>
+<p>Halo saya <b>M. Akbar Gadafi</b>.</p>
+<p>Website ini adalah portofolio sederhana yang saya buat untuk perjalanan menuju beasiswa dan dunia teknologi.</p>
 
-            <div class="rating-info">
-                <span id="rating-value">0.0</span> / 5 · 
-                <span id="vote-count">0</span> suara
-            </div>
-            <p style="font-size: 14px; color: #666;">*Klik bintang untuk memberi rating</p>
-        </div>
-    </div>
+<a href="#" onclick="showPage('portofolio')" class="btn">Lihat Portofolio</a>
+</div>
 
-    <!-- Halaman Profil -->
-    <div id="profil" class="container page" style="display: none;">
-        <div class="card">
-            <h1>Tentang Saya</h1>
-            
-            <div class="profil-img">
-                👤
-            </div>
-            
-            <h2>M. Akbar Gadafi</h2>
-            <p><strong>Calon Mahasiswa | Web Developer Pemula</strong></p>
-            
-            <p>Saya adalah seorang pengembang web pemula yang tertarik dengan dunia teknologi dan dakwah digital.</p>
-            
-            <h2>Data Diri</h2>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Nama Lengkap:</strong> M. Akbar Gadafi</li>
-                <li><strong>Pendidikan:</strong> SMA / Sederajat</li>
-                <li><strong>Minat:</strong> Web Development, Desain Islami</li>
-                <li><strong>Skill:</strong> HTML, CSS, JavaScript (dasar)</li>
-            </ul>
-            
-            <h2>Kontak</h2>
-            <p>📧 Email: akbar.gadafi@email.com</p>
-            <p>📱 Instagram: @akbar_gadafi</p>
-            <p>💻 GitHub: github.com/akbargadafi</p>
-        </div>
-    </div>
+<div class="card">
+<h2>Target Saya</h2>
+<p>🎓 Mendapatkan Beasiswa Luar Negeri</p>
+<p>💻 Menjadi Ethical Hacker</p>
+<p>📖 Menyelesaikan Hafalan 30 Juz</p>
+</div>
 
-    <!-- Halaman Portofolio -->
-    <div id="portofolio" class="container page" style="display: none;">
-        <div class="card">
-            <h1>Portofolio Saya</h1>
-            <p>Berikut adalah beberapa project yang pernah saya buat:</p>
-            
-            <div class="portfolio-item">
-                <h3>🌐 Website Islami</h3>
-                <p>Prototype website islami dengan fitur jadwal sholat, dzikir, dan doa harian.</p>
-            </div>
-            
-            <div class="portfolio-item">
-                <h3>📱 Aplikasi To-Do List</h3>
-                <p>Aplikasi catatan tugas harian dengan tampilan sederhana.</p>
-            </div>
-            
-            <div class="portfolio-item">
-                <h3>🕌 Landing Page Masjid</h3>
-                <p>Landing page untuk profil masjid dengan informasi jadwal kajian.</p>
-            </div>
-            
-            <div class="portfolio-item">
-                <h3>📖 Blog Pribadi</h3>
-                <p>Blog sederhana untuk berbagi tulisan tentang pengalaman belajar coding.</p>
-            </div>
-            
-            <a href="#" onclick="showPage('home')" class="btn">Kembali ke Beranda</a>
-        </div>
-    </div>
+</div>
 
-    <footer>
-        <p>© 2024 M. Akbar Gadafi - Dibuat untuk Portofolio Beasiswa</p>
-        <p style="margin-top: 10px; font-size: 14px;">"Sebaik-baik manusia adalah yang bermanfaat bagi orang lain"</p>
-    </footer>
+<!-- PROFIL -->
+<div id="profil" class="container page" style="display:none">
 
-    <script>
-        // Fungsi navigasi halaman
-        function showPage(page) {
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('profil').style.display = 'none';
-            document.getElementById('portofolio').style.display = 'none';
-            document.getElementById(page).style.display = 'block';
-            
-            document.getElementById('link-home').classList.remove('active');
-            document.getElementById('link-profil').classList.remove('active');
-            document.getElementById('link-portofolio').classList.remove('active');
-            document.getElementById('link-' + page).classList.add('active');
-        }
+<div class="card">
+<h1>Tentang Saya</h1>
 
-        // ========== FITUR RATING ==========
-        let ratings = JSON.parse(localStorage.getItem('ratings')) || [5, 4, 5];
+<p><b>Nama:</b> M. Akbar Gadafi</p>
+<p><b>Status:</b> Pelajar</p>
+<p><b>Minat:</b> Teknologi, Dakwah Digital, Informatika</p>
 
-        const stars = document.querySelectorAll('#stars i');
-        const ratingValue = document.getElementById('rating-value');
-        const voteCount = document.getElementById('vote-count');
+<h2>Skill</h2>
 
-        function updateRatingDisplay() {
-            let total = ratings.reduce((acc, val) => acc + val, 0);
-            let avg = ratings.length > 0 ? (total / ratings.length).toFixed(1) : 0;
-            ratingValue.textContent = avg;
-            voteCount.textContent = ratings.length;
+<p>HTML</p>
+<div class="skill">
+<div class="skill-bar" style="width:80%"></div>
+</div>
 
-            let roundedAvg = Math.round(avg);
-            stars.forEach(star => {
-                let value = parseInt(star.getAttribute('data-value'));
-                if (value <= roundedAvg) {
-                    star.classList.remove('fa-regular');
-                    star.classList.add('fa-solid', 'aktif');
-                } else {
-                    star.classList.remove('fa-solid', 'aktif');
-                    star.classList.add('fa-regular');
-                }
-            });
-        }
+<p>CSS</p>
+<div class="skill">
+<div class="skill-bar" style="width:70%"></div>
+</div>
 
-        function addRating(value) {
-            ratings.push(value);
-            localStorage.setItem('ratings', JSON.stringify(ratings));
-            updateRatingDisplay();
-        }
+<p>JavaScript</p>
+<div class="skill">
+<div class="skill-bar" style="width:50%"></div>
+</div>
 
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                let value = parseInt(this.getAttribute('data-value'));
-                addRating(value);
-            });
-        });
+<h2>Kontak</h2>
 
-        updateRatingDisplay();
-    </script>
+<p>📧 Email: muhammadabai04@gmail.com</p>
+<p>📸 Instagram: @Dave_fieee</p>
+
+</div>
+
+</div>
+
+<!-- PORTOFOLIO -->
+<div id="portofolio" class="container page" style="display:none">
+
+<div class="card">
+<h1>Portofolio</h1>
+
+<div class="portfolio">
+<h3>🌐 Website Islami</h3>
+<p>Prototype website islami untuk dakwah digital.</p>
+</div>
+
+<div class="portfolio">
+<h3>📱 To Do List App</h3>
+<p>Aplikasi pencatat tugas sederhana.</p>
+</div>
+
+<div class="portfolio">
+<h3>🕌 Landing Page Masjid</h3>
+<p>Website informasi kegiatan masjid.</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 M. Akbar Gadafi</p>
+<p>"Sebaik-baik manusia adalah yang bermanfaat bagi orang lain"</p>
+</footer>
+
+<script>
+
+function showPage(page){
+
+document.getElementById("home").style.display="none";
+document.getElementById("profil").style.display="none";
+document.getElementById("portofolio").style.display="none";
+
+document.getElementById(page).style.display="block";
+
+}
+
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",function(){
+
+cards.forEach(card=>{
+let position=card.getBoundingClientRect().top;
+let screen=window.innerHeight;
+
+if(position<screen-100){
+card.classList.add("show");
+}
+
+});
+
+});
+
+</script>
+
 </body>
 </html>
