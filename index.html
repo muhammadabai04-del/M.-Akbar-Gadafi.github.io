@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portofolio • M. Akbar Gadafi</title>
+<title>Akbar Gadafi | Ethical Hacker Portfolio</title>
 
 <style>
 
@@ -13,32 +12,24 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:monospace;
 }
 
 body{
-background:#f4f6f8;
-color:#333;
-transition:0.4s;
+background:#000;
+color:#00ff88;
 }
 
 nav{
-background:#2c5f2d;
 padding:15px;
+border-bottom:1px solid #00ff88;
 text-align:center;
-position:sticky;
-top:0;
 }
 
 nav a{
-color:white;
+color:#00ff88;
+margin:0 10px;
 text-decoration:none;
-margin:0 15px;
-font-size:18px;
-}
-
-nav button{
-margin-left:15px;
 }
 
 .container{
@@ -48,80 +39,51 @@ padding:30px;
 }
 
 .card{
-background:white;
-padding:30px;
+border:1px solid #00ff88;
+padding:25px;
 margin-top:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-opacity:0;
-transform:translateY(20px);
-transition:0.6s;
 }
 
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h1{
-color:#2c5f2d;
-margin-bottom:15px;
-}
-
-.btn{
-background:#2c5f2d;
-color:white;
-padding:10px 25px;
-border-radius:6px;
-text-decoration:none;
-border:none;
-cursor:pointer;
-}
-
-.btn:hover{
-background:#1e3f1f;
-}
-
-.skill{
-background:#ddd;
-border-radius:10px;
-margin:10px 0;
-overflow:hidden;
-}
-
-.skill-bar{
-background:#2c5f2d;
-height:10px;
-}
-
-.portfolio{
-background:#f9f9f9;
-padding:20px;
-border-left:5px solid #2c5f2d;
-border-radius:8px;
-margin-bottom:15px;
-transition:0.3s;
-}
-
-.portfolio:hover{
-transform:scale(1.05);
-}
-
-.dark{
-background:#121212;
-color:white;
-}
-
-.dark .card{
-background:#1e1e1e;
-}
-
-.dark nav{
+.terminal{
 background:black;
+border:1px solid #00ff88;
+padding:20px;
+margin-top:20px;
 }
 
-.stars span{
-font-size:30px;
+#terminal-output{
+min-height:150px;
+margin-bottom:10px;
+}
+
+#terminal-input{
+background:black;
+border:none;
+color:#00ff88;
+width:100%;
+outline:none;
+}
+
+.chatbox{
+border:1px solid #00ff88;
+padding:20px;
+margin-top:20px;
+}
+
+input{
+background:black;
+border:1px solid #00ff88;
+color:#00ff88;
+padding:8px;
+width:100%;
+margin-top:10px;
+}
+
+button{
+background:#00ff88;
+border:none;
+padding:8px 15px;
+margin-top:10px;
 cursor:pointer;
 }
 
@@ -129,8 +91,7 @@ footer{
 text-align:center;
 padding:30px;
 margin-top:40px;
-background:#333;
-color:white;
+border-top:1px solid #00ff88;
 }
 
 </style>
@@ -140,12 +101,12 @@ color:white;
 <body>
 
 <nav>
-<a href="#" onclick="showPage('home')">Beranda</a>
-<a href="#" onclick="showPage('profil')">Profil</a>
-<a href="#" onclick="showPage('portofolio')">Portofolio</a>
-<a href="#" onclick="showPage('masjid')">Masjid Lokal</a>
 
-<button onclick="toggleDark()">🌙</button>
+<a href="#" onclick="showPage('home')">home</a>
+<a href="#" onclick="showPage('terminal')">terminal</a>
+<a href="#" onclick="showPage('chatbot')">ai</a>
+<a href="#" onclick="showPage('masjid')">masjid</a>
+
 </nav>
 
 <!-- HOME -->
@@ -154,106 +115,67 @@ color:white;
 
 <div class="card">
 
-<h1>Assalamu'alaikum 👋</h1>
+<h1>root@akbar:~# welcome</h1>
 
-<p>Halo saya <b>M. Akbar Gadafi</b>.</p>
+<p>M. Akbar Gadafi</p>
+<p>Ethical Hacker | Web Developer | Santri</p>
 
-<p>Website ini adalah portofolio pribadi untuk perjalanan menuju dunia teknologi, dakwah digital, dan beasiswa luar negeri.</p>
+<p>Instagram: @Dave_fieee</p>
+<p>Email: muhammadabai04@gmail.com</p>
 
-<button class="btn" onclick="showPage('portofolio')">Lihat Portofolio</button>
+</div>
+
+</div>
+
+<!-- TERMINAL -->
+
+<div id="terminal" class="container page" style="display:none">
+
+<div class="card">
+
+<h2>interactive terminal</h2>
+
+<div class="terminal">
+
+<div id="terminal-output"></div>
+
+<input id="terminal-input" placeholder="type command...">
+
+</div>
 
 </div>
 
 <div class="card">
 
-<h2>Target Saya</h2>
+<h2>network scan result</h2>
 
-<p>🎓 Mendapatkan Beasiswa Luar Negeri</p>
-<p>💻 Menjadi Ethical Hacker</p>
-<p>📖 Menyelesaikan Hafalan 30 Juz</p>
+<div id="scan"></div>
 
 </div>
 
 <div class="card">
 
-<h2>Rating Website ⭐</h2>
+<h2>visitor info</h2>
 
-<div class="stars">
-
-<span onclick="rateSite(1)">⭐</span>
-<span onclick="rateSite(2)">⭐</span>
-<span onclick="rateSite(3)">⭐</span>
-<span onclick="rateSite(4)">⭐</span>
-<span onclick="rateSite(5)">⭐</span>
-
-</div>
-
-<p id="ratingResult">Belum ada rating</p>
+<div id="visitor"></div>
 
 </div>
 
 </div>
 
-<!-- PROFIL -->
+<!-- CHATBOT -->
 
-<div id="profil" class="container page" style="display:none">
+<div id="chatbot" class="container page" style="display:none">
 
 <div class="card">
 
-<h1>Tentang Saya</h1>
+<h2>AI Chatbot Islami</h2>
 
-<p><b>Nama:</b> M. Akbar Gadafi</p>
-<p><b>Status:</b> Pelajar</p>
-<p><b>Minat:</b> Informatika, Dakwah Digital</p>
+<input id="chatInput" placeholder="Tanya tentang Islam...">
 
-<h2>Skill</h2>
+<button onclick="askAI()">Kirim</button>
 
-<p>HTML</p>
-<div class="skill">
-<div class="skill-bar" style="width:80%"></div>
-</div>
-
-<p>CSS</p>
-<div class="skill">
-<div class="skill-bar" style="width:70%"></div>
-</div>
-
-<p>JavaScript</p>
-<div class="skill">
-<div class="skill-bar" style="width:50%"></div>
-</div>
-
-<h2>Kontak</h2>
-
-<p>📧 Email: muhammadabai04@gmail.com</p>
-<p>📷 Instagram: @Dave_fieee</p>
-
-</div>
-
-</div>
-
-<!-- PORTOFOLIO -->
-
-<div id="portofolio" class="container page" style="display:none">
-
-<div class="card">
-
-<h1>Portofolio</h1>
-
-<div class="portfolio">
-<h3>🌐 Website Islami</h3>
-<p>Prototype website dakwah digital.</p>
-</div>
-
-<div class="portfolio">
-<h3>📱 To Do List App</h3>
-<p>Aplikasi catatan tugas sederhana.</p>
-</div>
-
-<div class="portfolio">
-<h3>🕌 Landing Page Masjid</h3>
-<p>Website profil masjid dengan informasi kegiatan.</p>
-</div>
+<p id="chatOutput"></p>
 
 </div>
 
@@ -265,20 +187,13 @@ color:white;
 
 <div class="card">
 
-<h1>Masjid Lokal 🕌</h1>
+<h2>Masjid Locator</h2>
 
-<p>Gunakan lokasi untuk melihat masjid terdekat.</p>
-
-<button class="btn" onclick="getLocation()">📍 Gunakan Lokasi Saya</button>
+<button onclick="getLocation()">Scan Masjid Terdekat</button>
 
 <br><br>
 
-<iframe id="mapFrame"
-width="100%"
-height="350"
-style="border-radius:10px;border:0"
-loading="lazy">
-</iframe>
+<iframe id="mapFrame" width="100%" height="350" style="border:0"></iframe>
 
 </div>
 
@@ -286,9 +201,7 @@ loading="lazy">
 
 <footer>
 
-<p>© 2026 M. Akbar Gadafi</p>
-
-<p>"Sebaik-baik manusia adalah yang bermanfaat bagi orang lain"</p>
+<p>© 2026 Akbar Gadafi</p>
 
 </footer>
 
@@ -296,33 +209,121 @@ loading="lazy">
 
 function showPage(page){
 
-document.getElementById("home").style.display="none";
-document.getElementById("profil").style.display="none";
-document.getElementById("portofolio").style.display="none";
-document.getElementById("masjid").style.display="none";
+document.querySelectorAll(".page").forEach(p=>{
+p.style.display="none";
+});
 
 document.getElementById(page).style.display="block";
 
 }
 
-function toggleDark(){
+/* TERMINAL */
 
-document.body.classList.toggle("dark");
+const input=document.getElementById("terminal-input");
+const output=document.getElementById("terminal-output");
+
+input.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+let cmd=input.value.toLowerCase();
+
+output.innerHTML+="<div>> "+cmd+"</div>";
+
+if(cmd==="help"){
+output.innerHTML+="commands: about skills projects dua scan visitor clear";
+}
+
+else if(cmd==="about"){
+output.innerHTML+="M. Akbar Gadafi - Ethical Hacker Portfolio";
+}
+
+else if(cmd==="skills"){
+output.innerHTML+="html css javascript cybersecurity basic";
+}
+
+else if(cmd==="projects"){
+output.innerHTML+="islamic website | todo app | mosque website";
+}
+
+else if(cmd==="dua"){
+output.innerHTML+="Doa: Allahumma inni as'aluka ilman nafi'an...";
+}
+
+else if(cmd==="scan"){
+startScan();
+}
+
+else if(cmd==="visitor"){
+showVisitor();
+}
+
+else if(cmd==="clear"){
+output.innerHTML="";
+}
+
+input.value="";
 
 }
 
-let ratings=[];
+});
 
-function rateSite(value){
+/* NETWORK SCAN VISUAL */
 
-ratings.push(value);
+function startScan(){
 
-let total=ratings.reduce((a,b)=>a+b,0);
-let avg=(total/ratings.length).toFixed(1);
+let scan=document.getElementById("scan");
 
-document.getElementById("ratingResult").innerText="Rating: "+avg+" dari "+ratings.length+" suara";
+scan.innerHTML="scanning network...<br>";
+
+let devices=[
+"192.168.1.1 router",
+"192.168.1.5 laptop",
+"192.168.1.10 phone"
+];
+
+devices.forEach(d=>{
+scan.innerHTML+="device found: "+d+"<br>";
+});
 
 }
+
+/* VISITOR INFO */
+
+function showVisitor(){
+
+let info=
+"Browser: "+navigator.userAgent;
+
+document.getElementById("visitor").innerText=info;
+
+}
+
+/* AI CHATBOT */
+
+function askAI(){
+
+let q=document.getElementById("chatInput").value.toLowerCase();
+
+let ans="Maaf saya belum tahu.";
+
+if(q.includes("doa")){
+ans="Doa sebelum belajar: Allahumma inni as'aluka 'ilman nafi'an...";
+}
+
+if(q.includes("shalat")){
+ans="Shalat wajib ada 5 waktu: Subuh, Dzuhur, Ashar, Maghrib, Isya.";
+}
+
+if(q.includes("puasa")){
+ans="Puasa Ramadhan adalah kewajiban bagi muslim yang mampu.";
+}
+
+document.getElementById("chatOutput").innerText=ans;
+
+}
+
+/* MASJID LOCATOR */
 
 function getLocation(){
 
@@ -333,37 +334,14 @@ navigator.geolocation.getCurrentPosition(function(pos){
 let lat=pos.coords.latitude;
 let lon=pos.coords.longitude;
 
-document.getElementById("mapFrame").src="https://maps.google.com/maps?q=masjid&ll="+lat+","+lon+"&z=15&output=embed";
+document.getElementById("mapFrame").src=
+"https://maps.google.com/maps?q=masjid&ll="+lat+","+lon+"&z=15&output=embed";
 
 });
-
-}else{
-
-alert("Browser tidak mendukung GPS");
 
 }
 
 }
-
-const cards=document.querySelectorAll(".card");
-
-window.addEventListener("scroll",function(){
-
-cards.forEach(card=>{
-
-let pos=card.getBoundingClientRect().top;
-
-let screen=window.innerHeight;
-
-if(pos<screen-100){
-
-card.classList.add("show");
-
-}
-
-});
-
-});
 
 </script>
 
